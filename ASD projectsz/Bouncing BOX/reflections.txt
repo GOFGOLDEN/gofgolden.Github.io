@@ -1,0 +1,5 @@
+In your opinion, what are the pros of refactoring your HTML, CSS, and JavaScript into separate files? What are the cons?
+pros: putting 
+In your opinion, what are the pros of refactoring your JavaScript code into separate functions? What are the cons?
+setting them in separate files makes it easier to locate things and change them but it takes more time to set up correctly without error
+when they are in separate functions you can make it easier to understand what everything does  

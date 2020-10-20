@@ -8,6 +8,12 @@ function runProgram(){
 
   // Constant Variables
   var FRAMES_PER_SECOND_INTERVAL = 1000 / 60;
+  var key = {
+      "up": 87,
+      "down":83,
+      "left":65,
+      "right":68
+  }
   
   // Game Item Objects
 function gameItems() {
@@ -38,28 +44,18 @@ var speedy = 0
   Called in response to events.
   */
   function handleKeyDown(event) {
-    if (event.which == 87) {
-        console.log("W was pressed!");
-    }
-    if (event.which == 83) {
-        console.log("S was pressed!")
-    }
-    if (event.which == 65) {
-        console.log("A was pressed!")
-    }
-  if (event.which == 68) {
-        console.log("D was pressed!")
-    }}
-  
-
+    if (event.which === KEY.W)
++
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 function repositionGameItem(){
-
+positionx += speedx
+positiony += speedy
+$('#gameItem').css(positiony, positionx);
 }
   function redrawGameItem(){
-      
+    var updateGameItem = positionx,positiony = $('#gameItem').css(positiony, positionx);
   }
   function endGame() {
     // stop the interval timer
@@ -70,4 +66,4 @@ function repositionGameItem(){
   }
   
 } 
-
+}

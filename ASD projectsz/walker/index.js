@@ -17,10 +17,10 @@ function runProgram(){
   
   // Game Item Objects
 function gameItems() {
-var postionx = 0
-var postiony = 0
-var speedx = 0
-var speedy = 0
+var postionx = 0;
+var postiony = 0;
+var speedx = 0;
+var speedy = 0;
 }
 
   // one-time setup
@@ -44,18 +44,31 @@ var speedy = 0
   Called in response to events.
   */
   function handleKeyDown(event) {
-    if (event.which === KEY.W)
+    if (event.which === key.up){
+        console.log("up")
+    }
+    if (event.which === key.down){
+        console.log("down")
+    }
+    if (event.which === key.right){
+        console.log("right")
+        speedx = -5;
+    }
+    if (event.which === key.left){
+        console.log("left")
+    }
+    
 +
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-function repositionGameItem(){
-positionx += speedx
-positiony += speedy
-$('#gameItem').css(positiony, positionx);
+function repositionGameItem() {
+    positionx += speedx;
+    positiony += speedy;
+
 }
-  function redrawGameItem(){
-    var updateGameItem = positionx,positiony = $('#gameItem').css(positiony, positionx);
+  function redrawGameItem() {
+     $('#gameItem').css("top",positionx);
   }
   function endGame() {
     // stop the interval timer

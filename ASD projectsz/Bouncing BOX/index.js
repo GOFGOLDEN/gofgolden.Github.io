@@ -1,4 +1,5 @@
 /* global $ */
+
 // this is a program that I made useing javascript it is a  refractoring of a bouncing box project I mad ein the past
         'use strict'
  $(document).ready(function() {
@@ -50,7 +51,7 @@
 			*/
 			function handleBoxClick() {
             positionBW();
-            updatePosition();
+            resetPosition();
             updatePoints();
 			}
             /* main logic of the program: the update / handleBoxClick functions */

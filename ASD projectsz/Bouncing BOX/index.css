@@ -11,7 +11,5 @@
 			top: 100px;
 			left: 0px;
             
-		}
-        .box{ 
-  user-select: none;    /* Likely future */     
-}
+		};
+        

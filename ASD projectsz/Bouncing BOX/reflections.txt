@@ -1,4 +1,9 @@
+
 In your opinion, what are the pros of refactoring your HTML, CSS, and JavaScript into separate files? What are the cons?
 pros: by setting it into 3 separate files it allows you to easly switch between code. cons it takes a long amount of time depending on the length of your code to refactor everything. takeing time away from you actually debugging or adding fetures to your code
 In your opinion, what are the pros of refactoring your JavaScript code into separate functions? What are the cons?
 setting them into separate functions shortens the amount of lines and makeing it easier to understand your code. con:once again it takes up alot of time to change your functions,variables,ect 
+How is the jQuery file being loaded into this project: direct download or Content Delivery Network (CDN)?
+CDN
+If you load the index.js file before the jquery file our program doesn't work. Why? Open the preview in a new tab and look at the console to help you find out why.
+due to the fact that index.js loads first it cant detect jquery 

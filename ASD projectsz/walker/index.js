@@ -60,21 +60,7 @@ var speedy = 0;
         console.log("left")
         speedx += 5;
     }
-}
-function handleKeyup(event) {
-    if (event.which === key.up) {
-        speedy = -0;
-    }
-     if (event.which === key.down) {
-        speedy = -0;
-    }
-     if (event.which === key.right) {
-        speedx = -0;
-    }
-     if (event.which === key.left) {
-        speedx = -0;
-     }
-}
+  }
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////

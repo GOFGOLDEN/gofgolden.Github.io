@@ -12,10 +12,19 @@ body {
 }
 
 #gameItem {
-  background-color: teal;
-  width: 50px;
-  height: 50px;
+  background-color: rgb(4, 128, 0);
+  width: 30px;
+  height: 30px;
   position: absolute;
+
+
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 }
+
+#tail {
+background-color: rgb(4, 128, 0);
+width: 30px;
+height: 30px;
+position: absolute;
+  }

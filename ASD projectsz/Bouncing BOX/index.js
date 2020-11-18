@@ -1,13 +1,16 @@
 /* global $ */
 
 // this is a program that I made useing javascript it is a  refractoring of a bouncing box project I mad ein the past
-        'use strict'
+'use strict'
  $(document).ready(function() {
 
   /////////////////////////////////////////////////
   /////////////////// SETUP ///////////////////////
   /////////////////////////////////////////////////
-  
+   var BOARD_WIDTH = $('#board').width();
+			var positionX = 0;
+			var speedX = 10;
+			var point = 0;  
 // Every 50 milliseconds, call the update Function (see below)
 			setInterval(update, 50);
 
@@ -19,26 +22,9 @@
         /////////////////////////////////////////////////
         //////////////// CORE LOGIC /////////////////////
         /////////////////////////////////////////////////
-        var BOARD_WIDTH = $('#board').width();
-      
-
-			var positionX = 0;
-			var speedX = 10;
-			var point = 0;    
+         
         
-              function updatePosition(){
-                positionX += speedX;
-				$('#box').css("left", positionX);
-
-            }
-            function positionBW(){
-                if (positionX > BOARD_WIDTH) {
-					speedX = -speedX;
-				}
-				else if (positionX < 0) {
-					speedX = -speedX;
-				}
-            }
+             
             function update() {
             positionBW();
             updatePosition();
@@ -75,7 +61,19 @@
             function resetPosition(){
                 positionX = 0;
             }
-          
+           function updatePosition(){
+                positionX += speedX;
+				$('#box').css("left", positionX);
+
+            }
+            function positionBW(){
+                if (positionX > BOARD_WIDTH) {
+					speedX = -speedX;
+				}
+				else if (positionX < 0) {
+					speedX = -speedX;
+				}
+            }
             /* functions for executing sub-tasks of the core logic */
 
 });

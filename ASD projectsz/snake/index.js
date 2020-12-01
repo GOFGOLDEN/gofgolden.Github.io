@@ -8,8 +8,12 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
 
   // Constant Variables
-  var FRAMES_PER_SECOND_INTERVAL = 1000 / 60;
-  var FRAMES_PER_SECOND_INTERVAL = 1000 / 60;
+  var FRAMES_PER_SECOND_INTERVAL = 100;
+
+    var gameOver = {
+        
+    }
+
   var key = {
       "up": 87,
       "down":83,
@@ -24,7 +28,8 @@ var speedy = 0;
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);
-    
+    var BOARD_WIDTH = $('#board').width();
+    var BOARD_HEIGHT = $('#board').height();
 
   
   ////////////////////////////////////////////////////////////////////////////////
@@ -35,8 +40,8 @@ var speedy = 0;
   by calling this function and executing the code inside.
   */
      function newFrame() {
-    repositiongameItem();
-    redrawgameItem();
+        repositiongameItem();
+        redrawgameItem();
   };
   
   /* 
@@ -47,48 +52,61 @@ var speedy = 0;
 function handleKeyDown(event) {  
  
    var keyPressed = event.which;
-   var goingUp = speedy === -10;
-   var goingDown = speedy === 10;
-   var goingRight = speedx === 10;  
-   var goingLeft = speedx === -10;
+   var goingUp = speedy === -20;
+   var goingDown = speedy === 20;
+   var goingRight = speedx === 20;  
+   var goingLeft = speedx === -20;
  
      if (event.which === key.left && !goingRight)
      {    
-          speedx = -5;
+          speedx = -20;
           speedy = 0;  
      }
  
      if (event.which === key.up && !goingDown)
      {    
           speedx = 0;
-          speedy = -5;
+          speedy = -20;
      }
  
      if (event.which === key.right && !goingLeft)
      {    
-          speedx = 5;
+          speedx = 20;
           speedy = 0;
      }
  
      if (event.which === key.down && !goingUp)
      {    
           speedx = 0;
-          speedy = 5;
+          speedy = 20;
      }
     
 };
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
+ 
+  function doCollide() {
+     if (positionx >= BOARD_WIDTH()) {
+         endGame();
+     }
+     else if (positiony >= BOARD_HEIGHT()) {
+         endGame();
+     };
+ };
+  
+  
   function repositiongameItem() {
     positionx += speedx;
     positiony += speedy;
 
 };
-  function redrawgameItem() {
+
+   
+function redrawgameItem() {
      $('#gameItem').css("left",positionx);
-     $('#gameItem').css("top",positiony);
-  }
+     $('#gameItem').css("top",positiony);  
+  };
   function endGame() {
     // stop the interval timer
     clearInterval(interval);

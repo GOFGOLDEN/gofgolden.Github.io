@@ -16,8 +16,8 @@ body {
   width: 20px;
   height: 20px;
   position: absolute;
-    left: 100px;   /* Uncomment if you want to set a "starting" position */
-    top: 100px;    /* Uncomment if you want to set a "starting" position */
+    left: 200px;   /* Uncomment if you want to set a "starting" position */
+    top: 300px;    /* Uncomment if you want to set a "starting" position */
     }
 
 #apple {
@@ -25,4 +25,6 @@ body {
     width: 20px;
     height: 20px;
     position: absolute;
+    left: 300px;
+    top: 300px;
 }

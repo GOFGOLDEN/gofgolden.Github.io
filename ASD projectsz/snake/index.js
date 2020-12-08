@@ -25,6 +25,10 @@ var positionx = 0;
 var positiony = 0;
 var speedx = 0;
 var speedy = 0;
+
+// apple object
+var applex = 0
+var appley = 0
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);
@@ -102,10 +106,32 @@ function handleKeyDown(event) {
 
 };
 
-   
+   function doCollide(gameItem, apple) {
+    // TODO: calculate and store the remaining
+    // sides of the gameItem
+    gameItem.leftX = gameItem.x;
+    gameItem.topY = gameItem.y;
+    gameItem.rightX = gameItem.width;
+    gameItem.bottomY = gameItem.height;
+
+    // TODO: Do the same for apple
+    apple.leftX = apple.x;
+    apple.topY = apple.y;
+    apple.rightX = apple.width;
+    apple.bottomY = apple.height;
+    // TODO: Return true if they are overlapping, false otherwise
+    if (gameItem.x <apple.x + apple.width && gameItem.x + gameItem.width > apple.x && gameItem.y < apple.y + apple.height && gameItem.y + gameItem.height > apple.y){
+      console.log('true')
+    }
+}
 function redrawgameItem() {
      $('#gameItem').css("left",positionx);
      $('#gameItem').css("top",positiony);  
+  };
+
+  function redrawapple(){
+      $('#apple').css("left",applex);
+      $('#apple').css("top",appley);
   };
   function endGame() {
     // stop the interval timer

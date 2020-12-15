@@ -1,0 +1,27 @@
+Describe the gameplay 
+pong is a 2 player  tennis like game with the goal being to knock a "ball" past the oppanant
+
+What are the conditions when the game begins? 
+player 1 is usaly located on the far right of the screen while player 2 is on the far left. the back ground is usaly a black background with the player being white bars
+
+Does the game have an end? If so, what are the conditions for when it ends?
+ the game ends when a score limit/time limit ends with the objective being to score as many points as possible
+
+What ifs will there be? {if a point is gaind} {if the game has reacked a time limit} {if the point limit is made} {if bounced between the 2 players}
+Visual Game Components:
+What are the visual game components? 
+ the background would be static with a black color, player 1 ill have the ability to move up and down the screen, same with player2,the ball will be able to move in all directions with it being bounced back by players
+
+What data will you need to manage each game component?
+points,position of ball, ball speed,player1 position,player 2 positoin
+Events / Logic
+What events will occur in this game? 
+How do those events affect the data of the program?
+For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
+game win for player x
+game lost for player x
+when player 1 & 2 go up or down when the ball is hit by p1 & p2
+remaining time
+The points for player 1 & 2
+The position of the players is reset to 0 when the game ends
+the position of the ball is reset to 0 when the game ends

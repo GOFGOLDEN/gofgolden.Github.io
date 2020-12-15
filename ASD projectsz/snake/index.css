@@ -1,0 +1,30 @@
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+#board {
+  width: 600px;
+  height: 600px;
+  border: 1px solid white;
+  background-color: black;
+  position: relative;
+}
+
+#gameItem {
+  background-color: rgb(4, 128, 0);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+    left: 200px;   /* Uncomment if you want to set a "starting" position */
+    top: 300px;    /* Uncomment if you want to set a "starting" position */
+    }
+
+#apple {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 300px;
+    top: 300px;
+}

@@ -17,7 +17,7 @@ function runProgram(){
     "A":65,
     "S":83,
     "D":68,
-  }
+  } 
   // Game Item Objects
   //sidney: this will hold out position and speed for our player. 
 var positionX = 0;

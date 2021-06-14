@@ -114,6 +114,17 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
+  function factoryObj (id) {
+    var obj = {};
+    obj.id = id
+    obj.x= parseFloat($(id).css('left'));
+    obj.y= parseFloat($(id).css('top'));
+    obj.width =($(id).css('width'));
+    obj.height = ($(id).css('height'));
+    obj.speedX = 0;
+    obj.speedY = 0;
+    return obj;
+  }
   function repositionGameItem(){
     player.Y += player.speedY
   }

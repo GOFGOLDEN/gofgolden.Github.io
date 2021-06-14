@@ -1,0 +1,59 @@
+User Story / Gameplay
+Describe the gameplay 
+pong is a two player game that begins with a ball that can bounce off of player one and two. the objective is to bounce the ball off of your player into your opponenets background
+
+What are the conditions when the game begins?
+ball in the middle with player one and player two starting on opposit sides of the screen
+
+Does the game have an end? If so, what are the conditions for when it ends?
+if the ball hits the boarder 3 times on one side then the game should call the winner.
+
+What ifs will there be?
+if ball hits a player or the bottom/top of the boarder bounce ball in other direction, if ball hits boarder 3 times call winner,
+
+Visual Game Components:
+What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.
+board,player1,player2,ball
+
+Which will be static? (the board)
+the board,
+
+Which will be animated? (the box)
+player 1 and 2,ball
+
+What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
+points1,points2,positionY,speedY,ballspeedX,ballspeedY,ballpositionX,ballpositionY
+
+Events / Logic
+What events will occur in this game? (timer events, keyboard events, clicking events?)
+keyboard event,
+
+How do those events affect the data of the program?
+the keyboard event will be used to move player1 and player2 up and down the screen to block incoming ball attacks
+
+For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
+
+the following code below is an example of an event i will be using.
+
+
+function handleKeyDown(event) {
+    if (event.which ===KEY.W) {
+      console.log("W")
+      speedY = -5;
+    }
+    if (event.which ===KEY.S) {
+      console.log("S")
+      speedY = 5;
+    }
+   
+}function handleKeyUp(event) {
+  if (event.which ===KEY.W) {
+    console.log("W")
+    speedY = 0;
+  }
+  if (event.which ===KEY.S) {
+    console.log("S")
+    speedY = 0;
+  }
+
+  these functions uses the keyUp and keyDown event. i am using these keyboard events to make player1 and player2 move. 

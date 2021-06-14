@@ -18,21 +18,28 @@ function runProgram(){
     "LEFT":39,
   } 
   //this is our position and speed variables. we will use this to communicate to other functions to make movment in the players
-  // Constant Variables
-  var FRAME_RATE = 60;
-  var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  
-  // Game Item Objects
-  var positionX = 0;
-  var positionY = 0;
-  var speedX = 0;
-  var speedY = 0;
+ 
   var positionX2 = 0;
   var positionY2 = 0;
   var speedX2 = 0;
   var speedY2 = 0;
 
-
+  // Constant Variables
+  var FRAME_RATE = 60;
+  var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
+  
+  // Game Item Objects
+  function player($element,positionX,positionY,width,height,) {
+    player.id = $element;
+    player.X = positionX;
+    player.Y = positionY;
+    player.width = width;
+    player.height = height;
+    player.speedY = 0;
+    player.speedX = 0;
+  }
+  var player1 = ($('#gameItem'),0,0,50,50);
+  
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)                        // change 'eventType' to the type of event you want to handle
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
@@ -45,21 +52,21 @@ function runProgram(){
   function handleKeyDown(event) {
     if (event.which ===KEY.W) {
       console.log("W")
-      speedY = -5;
+      player1.speedY = -5;
     }
     if (event.which ===KEY.S) {
       console.log("S")
-      speedY = 5;
+      player1.speedY = 5;
     }
     /// this handleKeyUp function stops the position of x or y when we let go of our wasd keys
 }function handleKeyUp(event) {
   if (event.which ===KEY.W) {
     console.log("W")
-    speedY = 0;
+    player1.speedY = 0;
   }
   if (event.which ===KEY.S) {
     console.log("S")
-    speedY = 0;
+    player1.speedY = 0;
   }
 }//This handleKeyDown function uses our KEY object 
   //to corispond position x and y using our wasd keys
@@ -82,7 +89,8 @@ function runProgram(){
     if (event.which ===KEY.DOWN) {
       console.log("DOWN")
       speedY2 = 0;
-    }}
+    }
+}
 
   /* 
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
@@ -106,10 +114,8 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
   function repositionGameItem(){
-    positionX += speedX
-    positionY += speedY
+    player.Y += player.speedY
   }
   function repositionGameItem2(){
     positionX2 += speedX2
@@ -117,8 +123,8 @@ function runProgram(){
   }
   //Sidney: this tells the css to redraw the box based off of the position.
   function redrawGameItem(){
-    $("#gameItem").css("left",positionX);
-    $("#gameItem").css("top",positionY);
+    $(player.id).css("left",player.X);
+    $(player.id).css("top",player.Y);
   }
   function redrawGameItem2() {
     $("#gameItem2").css("left",positionX2);

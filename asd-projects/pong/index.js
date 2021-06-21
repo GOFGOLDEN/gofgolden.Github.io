@@ -139,14 +139,6 @@ function detectBounce(ball,paddle1,paddle2) {
     ball.Y = BALL_MAX.BOTTOM;
     ball.speedY *= -1;
   }
-  else if (ball.X > paddle2.Y) {
-    ball.speedX = ball.speedX
-    ball.speedX = ball.speedX * -1
-  }
-  else if (ball.X < paddle1.Y) {
-    ball.speedX = ball.speedX
-    ball.speedX = ball.speedX * -1
-  }
 }
 
   /* 

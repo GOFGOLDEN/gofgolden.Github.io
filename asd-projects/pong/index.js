@@ -22,7 +22,7 @@ function runProgram(){
   var BOARD_WIDTH = 1500;
   var BOARD_HEIGHT = 800;
   var BALL_SIZE = 40; 
-
+  var R
   var BALL_MAX = {
     "LEFT": 0,
     "RIGHT": BOARD_WIDTH - BALL_SIZE,
@@ -30,7 +30,10 @@ function runProgram(){
     "BOTTOM": BOARD_HEIGHT - BALL_SIZE
 }
 
-
+function RANDOM_SPEED() {
+  R = Math.random()
+}
+RANDOM_SPEED()
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
@@ -40,6 +43,7 @@ function runProgram(){
   var paddle2 = player('#gameItem2');
   var paddle1 = player('#gameItem');
   var ball = player('#ball');
+  RANDOM_BOUNCE()
   // one-time setup
   // this variable will be used to update new frames as well as keep our new frame function continuesly working
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)                        // change 'eventType' to the type of event you want to handle
@@ -47,6 +51,8 @@ function runProgram(){
   $(document).on('keyup', handleKeyUp);      
   $(document).on('keydown', handleKeyDown2);                           // change 'eventType' to the type of event you want to handle
   $(document).on('keyup', handleKeyUp2);   
+
+  
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -92,30 +98,56 @@ function runProgram(){
       paddle2.speedY = 0;
     }
 }
+function RANDOM_BOUNCE(){
+  if (R > 0.5){
+    ball.speedX = 5;
+    ball.speedY = 5;
+    console.log('1')
+  }
+  else {
+    ball.speedY = -5;
+    ball.speedY = -5;
+    console.log('2')
+  }
+}
 // this moveball function takes the css of the ball and the speed (x/y) to redraw the ball based on its position/speed
+
 function moveBall(ball) {
 // repositioning
   ball.x += ball.speedX;
   ball.y += ball.speedY;
 
 // redrawing
-  $(ball.id).css("left", ball.x);
-  $(ball.id).css("top", ball.y);
+  $(ball.id).css("left", ball.X);
+  $(ball.id).css("top", ball.Y);
 }
 // like it is said this function detects the bounce of the ball and returns the speed in the other direction
-function detectBounce(ball) {
-  if (ball.x > BALL_MAX.RIGHT) {
-      ball.x = BALL_MAX.RIGHT;
+function detectBounce(ball,paddle1,paddle2) {
+  if (ball.X > BALL_MAX.RIGHT) {
+      ball.X = BALL_MAX.RIGHT;
       ball.speedX *= -1;
   }
-  else if (ball.x < BALL_MAX.LEFT) {
-      ball.x = BALL_MAX.LEFT;
+  else if (ball.X < BALL_MAX.LEFT) {
+      ball.X = BALL_MAX.LEFT;
       ball.speedX *= -1;
   }
-  else if (ball.y < BALL_MAX.TOP) {
-      ball.y = BALL_MAX.TOP;
+  else if (ball.Y < BALL_MAX.TOP) {
+      ball.Y = BALL_MAX.TOP;
       ball.speedY *= -1;
-  }}
+  }
+  else if (ball.Y > BALL_MAX.BOTTOM) {
+    ball.Y = BALL_MAX.BOTTOM;
+    ball.speedY *= -1;
+  }
+  else if (ball.X > paddle2.Y) {
+    ball.speedX = ball.speedX
+    ball.speedX = ball.speedX * -1
+  }
+  else if (ball.X < paddle1.Y) {
+    ball.speedX = ball.speedX
+    ball.speedX = ball.speedX * -1
+  }
+}
 
   /* 
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
@@ -130,7 +162,7 @@ function detectBounce(ball) {
     repositionGameItem2()
     repositionBall()
     moveBall(ball)
-    detectBounce(ball)
+    detectBounce(ball,paddle1,paddle2)
   }
   
   /* 

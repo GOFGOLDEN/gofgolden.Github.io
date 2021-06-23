@@ -5,8 +5,8 @@ $(document).ready(function(){
 
     // TODO: Call your apply function(s) here
 applyFilter(redify);
-applyFilter(decreaseBlue);
-applyFilter(increaseGreenByBlue);
+applyFilterNoBackGround(decreaseBlue);
+applyFilterNoBackGround(increaseGreenByBlue);
 
 
 
@@ -47,17 +47,25 @@ function increaseGreenByBlue(rgbNumbers){
 }
 // TODO 5: Create the applyFilterNoBackground function
 function applyFilterNoBackGround(){
-for (var i = 0; i < image.length; i++){
-    for (var p = 0; p< image[i].length; p++){
-       
-    }
+    for (var i = 0; i < image.length; i++){ 
+        for (var p = 0; p < image[i].length; p++){
+    
+            
+            if (image[i][p] !== image[0]){
+                
+                applyFilter(filterFunction)
+            }
+
+        }
 }
 }
+
 
 
 // TODO 2 & 4: Create filter functions
 function filterFunction(){
+
     
-}
+};
 
 // CHALLENGE code goes below here

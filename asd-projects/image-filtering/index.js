@@ -39,11 +39,11 @@ function redify(rgbNumbers){
     rgbNumbers[RED] = 255
 }
 function decreaseBlue(rgbNumbers){
-    rgbNumbers[BLUE] = Math.max(0,-30)
+    rgbNumbers[BLUE] = Math.max(0, rgbNumbers[BLUE] - 30)
 
 }
 function increaseGreenByBlue(rgbNumbers){
-    rgbNumbers[GREEN,BLUE] = Math.min(255)
+    rgbNumbers[GREEN] = Math.min(255, rgbNumbers[BLUE] + rgbNumbers[GREEN])
 }
 // TODO 5: Create the applyFilterNoBackground function
 function applyFilterNoBackGround(){

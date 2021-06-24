@@ -46,14 +46,22 @@ function increaseGreenByBlue(rgbNumbers){
     rgbNumbers[GREEN] = Math.min(255, rgbNumbers[BLUE] + rgbNumbers[GREEN])
 }
 // TODO 5: Create the applyFilterNoBackground function
-function applyFilterNoBackGround(){
+function applyFilterNoBackGround(filterFunction){
     for (var i = 0; i < image.length; i++){ 
         for (var p = 0; p < image[i].length; p++){
-    
-            
-            if (image[i][p] !== image[0]){
+            if (image[i][p] !== image[0][0]){
                 
-                applyFilter(filterFunction)
+            var rgbString = image[i][p];
+            
+            var rgbNumbers = rgbStringToArray(rgbString);
+
+            filterFunction(rgbNumbers)
+
+            var rgbString = rgbArrayToString (rgbNumbers);
+
+            image[i][p] = rgbString;
+            
+               
             }
 
         }
@@ -63,9 +71,6 @@ function applyFilterNoBackGround(){
 
 
 // TODO 2 & 4: Create filter functions
-function filterFunction(){
 
-    
-};
 
 // CHALLENGE code goes below here

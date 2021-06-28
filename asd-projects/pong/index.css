@@ -28,15 +28,6 @@ body {
   left: 1350px;   /* Uncomment if you want to set a "starting" position */
    top: 350px;    /* Uncomment if you want to set a "starting" position */
 }
-#ball {
-  background-color:rgb(168, 253, 89);
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  left: 750px;  
-  top: 350px;
-}
-
 #score1 {
   background-color:rgb(255, 0, 0);
   width: 100px;
@@ -56,3 +47,13 @@ body {
   left: 1000px;  
   top: 30px;
 }
+#ball {
+  background-color:rgb(168, 253, 89);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 750px;  
+  top: 350px;
+}
+
+

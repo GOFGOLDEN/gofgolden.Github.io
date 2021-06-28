@@ -171,20 +171,21 @@ function detectPaddleBounce(ball,paddle1,paddle2) {
   ball.downY =  ball.y + BALL_SIZE;
 
   // TODO: Return true if they are overlapping, false otherwise
-  if ((paddle1.rightX > ball.leftX)&&
-    (paddle1.leftX < ball.rightX)&&
-    (paddle1.topY < ball.downY)&&
-    (paddle1.downY > ball.topY)&&
-    (paddle2.rightX < ball.leftX)&&
-    (paddle2.leftX > ball.rightX)&&
-    (paddle2.topY > ball.downY)&&
-    (paddle2.downY < ball.topY)) {
+  if (paddle1.rightX > ball.leftX)
+    (paddle1.leftX < ball.rightX)
+    (paddle1.topY < ball.downY)
+    (paddle1.downY > ball.topY); {
+      ball.speedX *= -1
+    }
+
+   if (paddle2.rightX < ball.leftX)
+    (paddle2.leftX > ball.rightX)
+    (paddle2.topY > ball.downY)
+    (paddle2.downY < ball.topY); {
     
       ball.speedX *= -1 
   }
-else {
-  return false;
-}
+
   
 }
 
